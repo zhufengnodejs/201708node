@@ -14,3 +14,9 @@ let app = express();
 app.use('/user',user);
 app.use('/article',article);
 app.listen(8080);
+//npm install ejs -S
+//npm install ejs --save
+
+//npm install ejs -D
+//npm install ejs --save-dev
+
