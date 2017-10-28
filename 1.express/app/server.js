@@ -7,8 +7,10 @@
  **/
 let express = require('express');
 let user = require('./routes/user');
+let article = require('./routes/article');
 let app = express();
 //当服务器收到客户端请求的时候，会判断请求路径是不是以/user开头，如果是以/user开头，会交给user中间件来处理
 // /user/signup
 app.use('/user',user);
+app.use('/article',article);
 app.listen(8080);

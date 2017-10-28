@@ -12,5 +12,11 @@ router.get('/signup',function(req,res){
 router.post('/signup',function(req,res){
   res.send('提交注册');
 });
+router.get('/signin',function(req,res){
+  res.send('登录');
+});
+router.post('/signin',function(req,res){
+  res.send('提交登录');
+});
 module.exports = router;
 
