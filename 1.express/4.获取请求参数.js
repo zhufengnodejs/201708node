@@ -26,4 +26,14 @@ app.get('/signup',function(req,res){
     </form>
   `);
 });
+//req是一个可读流
+app.post('/signup',function(req,res){
+ var result = '';
+ req.on('data',function(data){
+   result += data.toString();
+ });
+ req.on('end',function(){
+   res.end(result);
+ });
+});
 app.listen(8080);
