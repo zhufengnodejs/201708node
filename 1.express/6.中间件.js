@@ -4,6 +4,7 @@
 let express = require('express');
 let app = express();
 let fs = require('fs');
+
 /**
  * 中间件其实是一个函数
  * use表示使用一个中间件函数
@@ -36,6 +37,7 @@ app.use(function(req,res,next){
   console.log('中间件2');
   next();
 });
+
 app.get('/',function(req,res){
   res.end('首页');
 });
