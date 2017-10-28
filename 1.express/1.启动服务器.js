@@ -9,9 +9,11 @@ app.listen(8080,function(){
   console.log('服务器已经启动，监听8080端口');
 });
 
-/*app.listen = function listen(port) {
-  var server = require('http').createServer(app);
-  server.listen(port);
-};*/
+/*
+  app.listen = function listen(port) {
+    var server = require('http').createServer(app);
+    server.listen(port);
+  };
+*/
 
 

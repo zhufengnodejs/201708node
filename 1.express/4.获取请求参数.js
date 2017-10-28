@@ -36,4 +36,30 @@ app.post('/signup',function(req,res){
    res.end(result);
  });
 });
+// id 我们称为路径参数
+app.get('/users/:id/:name',function(req,res){
+  let id = req.params.id;
+  let name = req.params.name;
+  res.end(id+name);
+});
+//next表示继续执行的意思
+//可以在param里把路径参数进行处理，比如把字符串转成数字
+app.param('num1',function(req,res,next,num1){
+  //把字符串转成数字赋给了请求对象的num1属性
+   req.num1 = parseInt(num1);
+   next();//表示继续向下执行
+})
+app.param('num2',function(req,res,next,num2){
+  //把字符串转成数字赋给了请求对象的num1属性
+  req.num2 = parseInt(num2);
+  next();//表示继续向下执行
+})
+//num1 2 是两个占位符 表示匹配路径 /add/任意字符串/任意字符串
+app.get('/add/:num1/:num2',function(req,res){
+  res.end('和是:'+(req.num1+req.num2));
+});
+app.get('/minus/:num1/:num2',function(req,res){
+  res.end('差是'+(req.num1-req.num2));
+});
+
 app.listen(8080);
