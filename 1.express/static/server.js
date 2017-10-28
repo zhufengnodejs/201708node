@@ -15,4 +15,8 @@ let app = express();
 //客户端访问服务器url路径跟服务器上硬盘的路径有必然的关系吗？
 app.use('/static',express.static(path.resolve('public')));
 //app.get('/static/css/index.css2');
+//当客户端访问/baidu的时候，让客户端跳到百度首页
+app.get('/baidu',function(req,res){
+  res.redirect('http://www.baidu.com');
+});
 app.listen(8080);
