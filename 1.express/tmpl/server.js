@@ -12,7 +12,8 @@ app.set('view engine','html');
 //设置模板存放的根目录
 app.set('views',path.resolve('views'));
 //指定html类型的模板还是使用ejs模板引擎来进行渲染
-app.engine('html',require('ejs').__express)
+//每种模板引擎渲染的方法不一样，每种模板引擎都是的渲染函数
+app.engine('html',require('ejs').__express);
 //当客户端访问/的时候，执行对应的回调函数
 app.get('/',function(req,res){
   //render是用来把静态的模板文件和动态的数据对象关联的过程
