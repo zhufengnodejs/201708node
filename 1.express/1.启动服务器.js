@@ -1,6 +1,6 @@
 //1.引入express模块,用来帮助我们创建http服务器
 let express = require('express');
-//express是一个函数，需要执行才能得到应用的实例
+//express是一个函数，需要执行才能得到应用的函数
 //app其实也是一个函数
 let app = express();
 //在本机的8080端口上监听客户端的请求
