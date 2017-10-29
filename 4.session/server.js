@@ -11,7 +11,11 @@ app.use(session({
   //即使某个用户从来没有操作过session,也保存一份数据
   saveUninitialized:true,
   //秘钥 加密cookie的秘钥。让别人识别不出来我写的是什么
-  secret:'zfpx'
+  secret:'zfpx',
+  cookie:{
+    httpOnly:false,
+    maxAge:10000
+  }
 }));
 app.get('/write',function(req,res){
   req.session.money = 1160;
