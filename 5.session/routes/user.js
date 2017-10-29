@@ -49,4 +49,12 @@ router.post('/signin',function(req,res){
     res.redirect('back');
   }
 });
+router.get('/signout',function(req,res){
+  req.session.username = null;
+  res.redirect('/');
+});
+//判断用户是否登录，如果已经登录，则继续访问此路由，如果未登录，跳到登录页
+router.get('/private',function(req,res){
+
+});
 module.exports = router;
