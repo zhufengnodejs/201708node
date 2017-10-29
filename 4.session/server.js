@@ -20,4 +20,7 @@ app.get('/write',function(req,res){
 app.get('/read',function(req,res){
   res.send(`读到${req.session.money}`);
 });
+app.get('/visit',function(req,res){
+
+});
 app.listen(8080);
