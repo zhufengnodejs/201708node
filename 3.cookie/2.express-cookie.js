@@ -11,15 +11,23 @@ app.get('/write',function(req,res){
   // a.zfpx.cn b.zfpx.cn 都指向本地127.0.0.1
   // 配置host文件
   //Set-Cookie:name=zfpx; Domain=a.zfpx.cn; Path=/
-  res.cookie('name','zfpx',{
+  /*res.cookie('name','zfpx',{
     domain:'a.zfpx.cn'
-  });
+  });*/
+  //============================================!
+  // Path 指定路径
+  // 如果指定了cookie的路径，那么只有当客户端再次向服务器发送 指定路径的请求时才会发送cookie，其它路径不发放
+  res.cookie('name','zfpx',{path:'/read1'});
   res.send('write ok');
 });
 
-app.get('/read',function(req,res){
+app.get('/read1',function(req,res){
    // name=zfpx querystring.parse(str);
    res.json(req.cookies);
+});
+app.get('/read2',function(req,res){
+  // name=zfpx querystring.parse(str);
+  res.json(req.cookies);
 });
 //统计每个客户端访问服务器的次数
 app.get('/visit',function(req,res){
