@@ -21,6 +21,9 @@ app.get('/read',function(req,res){
   res.send(`读到${req.session.money}`);
 });
 app.get('/visit',function(req,res){
-
+   let visit = req.session.visit || 0;
+   visit++;
+   req.session.visit = visit;
+   res.send(`欢迎你的第${visit}次访问`);
 });
 app.listen(8080);
