@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+let cookieParser = require('cookie-parser');
 const index = require('./routes/index');
 const user = require('./routes/user');
 //用来解析请求体的，它会把请求体的数据变成一个对象赋给req.body
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //也有可能是JSON格式 JSON.parse()
 // application/json
 app.use(bodyParser.json());
+app.use(cookieParser());
 //res.render
 //当请求路径以/开头的时候，走index中间件
 app.use('/',index);
