@@ -23,7 +23,18 @@ router.post('/signup',function(req,res){
      users.push(user);//添加到用户列表中去，表示注册成功
      res.redirect('/user/signin');
    }
-
-
+});
+router.get('/signin',function(req,res){
+  res.render('signin',{title:'用户登录'});
+});
+router.post('/signin',function(req,res){
+  let user = req.body;
+  //当数组中有一个用户的用户名和密码跟本次输入的用户名和密码一样的话，则认为登录成功，跳到首页，否则登录失败，跳回登录页
+  let exist = users.some(item=>item.username == user.username && item.password == user.password);
+  if(exist){
+    res.redirect('/');
+  }else{
+    res.redirect('back');
+  }
 });
 module.exports = router;

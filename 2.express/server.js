@@ -14,7 +14,7 @@ app.engine('html',require('ejs').__express);
 //服务器是通过请求头中Content-Type字段来得到请求体的格式
 //客户端传过来的请求体格式多种多样。有查询字符串格式 username=1&password=2, querystring.parse()
 // application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 //也有可能是JSON格式 JSON.parse()
 // application/json
 app.use(bodyParser.json());
